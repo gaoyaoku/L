@@ -1,7 +1,6 @@
-hostname = api.textnow.me, *.videostarapp.com, avatar-nct.nixcdn.com, spclient.wg.spotify.com, *.googlevideo.com, oa.zalo.me, vsco.co, api.gyrosco.pe, origin-prod-phoenix.jibjab.com, api.termius.com, api.picsart.c*, api.meiease.c*, api.unfold.app, viva-asia1.vvbrd.com, graph.nhaccuatui.com, api.memrise.com , buy.itunes.apple.com, api.sync.me, pool.elsanow.io, lambda.us-east-1.amazonaws.com, api.mondlylanguages.com, api.busuu.com, owa.videoshowiosglobalserver.com:0, accounts.elevateapp.net, purchases.ws.pho.to, api-intl.mr.meitu.com, bmall.camera360.com, api.tv.zing.vn, api.calm.com, www.calm.com, api.global.mp3.zing.vn, apimboom2.globaldelight.net, photos.adobe.io, license.pdfexpert.com, subs.platforms.team, apic.musixmatch.com, api.getmimo.com, api.revenuecat.com, pixmagicapp.com, engbright.com, api.lingokids.com, www.peacefulsoundsapp.com, duolingo-leaderboards-prod.duolingo.com, commerce-i18n-api.faceu.mobi, mobi, mobile-api.adguard.com, api.blinkist.com, api.sololearn.com, receipts.cerebralgardens.com, api-kinemaster-assetstore.*, api.pushover.net, api-cs.intsig.net, api.overhq.com, api.appsyscode.com, api.freeletics.com, api.shred.app, receipt-validator.herewetest.com, api.deezer.com, iap.aps-sdk.com, education.github.com, backend.getdrafts.com, ssl-api.itranslateapp.com, sk.ulysses.app, dayone.me, license.enpass.io, mp.bybutter.com, *.grammarly.com, splice.oracle.*.com, api.keepkeep.com, planner5d.com, secure.istreamer.com, www.api.monkeyuni.net, account.wps.com, menscoach-api.asqq.io,
-
+[Script]
 #vsco
-http-response ^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/vsco.js
+http-response ^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/ script-path= https://raw.githubusercontent.com/langkhach270389/Scripting/master/vsco.js
 
 #gyroscope
 http-response ^https:\/\/api\.gyrosco\.pe\/v1\/account\/$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/Gyroscope.vip.js
@@ -36,9 +35,6 @@ http-response ^https:\/\/api\.sync\.me\/api\/purchases\/(report_purchases|get_pu
 #elsaresponse
 http-response ^https:\/\/pool\.elsanow\.io\/user\/api\/v1\/purchase$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/elsa-response.js
 
-#elsarewrite
-http-response ^https:\/\/pool\.elsanow\.io\/content\/api\/v1\/modules\/download$  url request-header (\r\n)x-session-token:.+(\r\n) request-header $1x-session-token: F3S0w0bysBQFdbjtxpFurrFv2ItBBcBkVQxUddQW+9vjt2JXM751ksqq5GAWpkl+kk9nhig9BGh9JhYHQaokmendY6zLZDscHiRkZD2HrdJclKVCLordAARJhYIrf5C+5OSK6ax2TA45CKi8S09FEtYXN4noXO7gt42NT6WPIv6DKhdIwVxQuIAMLU5abmpMTDlyWeI4ulBWcOQbuZWWZg==
-
 #drops
 http-response ^https:\/\/lambda\.us-east-1\.amazonaws\.com/.*/functions\/prod-4-syncPurchases\/invocations$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/drops.js
 
@@ -66,9 +62,6 @@ http-response ^https?:\/\/api\.tv\.zing\.vn\/.*/user* script-path=https://raw.gi
 #calm
 http-response ^https:\/\/api\.calm\.com\/me$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/calm.vip.js
 
-#remove_manage
-http-response ^https:\/\/www\.calm\.com\/mobile\/manage-subscription\?token=*  url reject-img
-
 #lightroom
 http-response ^https:\/\/photos\.adobe\.io\/v2\/accounts* script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/Lightroom.js
 
@@ -82,7 +75,7 @@ http-response ^https:\/\/subs\.platforms\.team\/.+\/apple\/verify$ script-path=h
 http-response ^https:\/\/apic\.musixmatch\.com\/ws\/.*\/config\.get script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/musixmatch.miao.js
 
 #boom
-http-response ^https:\/\/apimboom2\.globaldelight\.net\/itunesreceipt_v2\.php$ url 302 https://raw.githubusercontent.com/langkhach270389/Scripting/master/boom.vip.rsp
+http-response ^https:\/\/apimboom2\.globaldelight\.net\/itunesreceipt_v2\.php$ script-path=302 https://raw.githubusercontent.com/langkhach270389/Scripting/master/boom.vip.rsp
 
 #mimo
 http-response ^https:\/\/api\.getmimo\.com\/v1\/subscriptions$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/mimo.vip.js
@@ -91,7 +84,7 @@ http-response ^https:\/\/api\.getmimo\.com\/v1\/subscriptions$ script-path=https
 http-response ^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[a-zA-Z0-9_-]*$) script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/revenuecat.js
 
 #Bright
-http-response ^https:\/\/engbright\.com\/app-portal\/apple\/receipt$ url 302 https://raw.githubusercontent.com/langkhach270389/Scripting/master/Bright.rsp
+http-response ^https:\/\/engbright\.com\/app-portal\/apple\/receipt$ script-path=302 https://raw.githubusercontent.com/langkhach270389/Scripting/master/Bright.rsp
 
 #lingokids
 http-response ^https:\/\/api\.lingokids\.com\/v1\/renovate_session$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/lingokids.vip.js
@@ -106,7 +99,7 @@ http-response ^https:\/\/duolingo-leaderboards-prod\.duolingo\.com\/leaderboards
 http-response ^https:\/\/commerce-i18n-api\.faceu\.mobi\/commerce\/v1\/subscription\/user_info$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/ulike.js
 
 #adguardpremium
-http-response ^https:\/\/mobile-api\.adguard\.com\/api\/1\.0\/ios_validate_receipt$ url 302 https://raw.githubusercontent.com/langkhach270389/Scripting/master/Adguard.rsp
+http-response ^https:\/\/mobile-api\.adguard\.com\/api\/1\.0\/ios_validate_receipt$ script-path=302 https://raw.githubusercontent.com/langkhach270389/Scripting/master/Adguard.rsp
 
 #zingmp3
 http-response ^https:\/\/api\.global\.mp3\.zing\.vn\/1\.0\/getUserInfo\?data=* script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/zingmp3.js
@@ -147,22 +140,11 @@ http-response ^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile script-path=
 #itranslate&lingo&voice&converse
 http-response ^https:\/\/ssl-api\.itranslateapp\.com\/.*\/subscriptions\/.*\/ios$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/itranslate.js
 
-#ulysses
-;^https:\/\/sk\.ulysses\.app\/api\/v1\/user_offers$ url request-header (\r\n)If-None-Match:.+(\r\n) request-header $1 
-
-;^https:\/\/sk\.ulysses\.app\/api\/v1\/itunes_receipt_verify$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/ulysses.js
-
-#pre_dayone
-;^https:\/\/dayone\.me\/api\/users$ url request-header (\r\n)If-None-Match:.+(\r\n) request-header $1 
-
 #dayone
 http-response ^https:\/\/dayone\.me\/api\/(users|v2\/users\/account-status)$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/dayone.js
 
 #endel
 http-response ^https:\/\/api-production\.endel\.io\/.*\/user$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/endel.js
-
-#shred
-;^https:\/\/api\.shred\.app\/verifyReceipt$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/shred.js
 
 #nichi
 http-response ^https?:\/\/mp\.bybutter\.com\/mood\/(official-templates|privileges) script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/nichi.js
@@ -176,16 +158,10 @@ http-response ^https:\/\/splice\.oracle\.\w+\.com\/devices\/me script-path=https
 #planner5d
 http-response ^https:\/\/planner5d\.com\/api\/sets script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/planner5d.js
 
-#playerxtreme
-;^https:\/\/secure\.istreamer\.com\/backend$ url request-header (\r\n)If-None-Match:.+(\r\n) request-header $1 
-
 http-response ^https:\/\/secure\.istreamer\.com\/backend$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/playerxtreme.js
 
 #all apps monkey
 http-response ^https:\/\/www\.api\.monkeyuni\.net\/api\/.+\/mobile\/account\/load-update script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/monkey.js
-
-##wps makexp
-;http-response ^https:\/\/account\.wps\.com/\api\/users\/.+ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/wps.js
 
 #VideoStar
 http-response ^https?:\/\/.*\.videostarapp\.com\/scripts\/subsNew\.php script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/VideoStar.js
@@ -195,3 +171,6 @@ http-response ^https:\/\/api\.textnow\.me\/api2.0\/users\/.* script-path=https:/
 
 #Muscle Booster
 http-response ^https:\/\/menscoach-api\.asqq\.io\/prod\/user$ script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/MuscleBooster.js
+
+[MITM]
+hostname = api.textnow.me, *.videostarapp.com, avatar-nct.nixcdn.com, spclient.wg.spotify.com, *.googlevideo.com, oa.zalo.me, vsco.co, api.gyrosco.pe, origin-prod-phoenix.jibjab.com, api.termius.com, api.picsart.c*, api.meiease.c*, api.unfold.app, viva-asia1.vvbrd.com, graph.nhaccuatui.com, api.memrise.com, api.sync.me, pool.elsanow.io, lambda.us-east-1.amazonaws.com, api.mondlylanguages.com, api.busuu.com, owa.videoshowiosglobalserver.com:0, accounts.elevateapp.net, purchases.ws.pho.to, api-intl.mr.meitu.com, bmall.camera360.com, api.tv.zing.vn, api.calm.com, www.calm.com, api.global.mp3.zing.vn, apimboom2.globaldelight.net, photos.adobe.io, license.pdfexpert.com, subs.platforms.team, apic.musixmatch.com, api.getmimo.com, api.revenuecat.com, pixmagicapp.com, engbright.com, api.lingokids.com, www.peacefulsoundsapp.com, duolingo-leaderboards-prod.duolingo.com, commerce-i18n-api.faceu.mobi, mobi, mobile-api.adguard.com, api.blinkist.com, api.sololearn.com, receipts.cerebralgardens.com, api-kinemaster-assetstore.*, api.pushover.net, api-cs.intsig.net, api.overhq.com, api.appsyscode.com, api.freeletics.com, api.shred.app, receipt-validator.herewetest.com, api.deezer.com, iap.aps-sdk.com, education.github.com, backend.getdrafts.com, ssl-api.itranslateapp.com, sk.ulysses.app, dayone.me, license.enpass.io, mp.bybutter.com, *.grammarly.com, splice.oracle.*.com, api.keepkeep.com, planner5d.com, secure.istreamer.com, www.api.monkeyuni.net, account.wps.com, menscoach-api.asqq.io,
