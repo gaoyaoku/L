@@ -1,9 +1,10 @@
 [Script]
+
 #百度网盘解锁会员
 http-response https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Crack/bdcloud.js, requires-body=true, tag=百度网盘会员
 
-#百度云盘解锁视频在线播放和倍速
-http-response https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js, requires-body=true, tag=百度云盘在线播放和倍速
+#百度云盘视频倍速
+http-response https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js, requires-body=true, tag=百度云盘视频倍速
 
 
 #PicsArt
@@ -25,10 +26,19 @@ http-response ^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile script-path=
 #Textnow
 http-response ^https:\/\/api\.textnow\.me\/api2.0\/users\/.* script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/Textnow.js, requires-body=true, tag=Textnow
 
+
+#WPS
+http-response ^https://account.wps.*/api/users/ script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js, requires-body=true, tag=WPS
+
+
+#Emby
+http-response ^https:\/\/mb3admin\.com\/admin\/service(\/registration\/validateDevice|\/appstore\/register|\/registration\/validate|\/registration\/getStatus|\/supporter\/retrievekey) script-path=https://subweb.oss-cn-hongkong.aliyuncs.com/Script/embycrack.js, requires-body=true, tag=Emby
+
+
 [URL Rewrite]
 #calm_remove_manage
 ^https:\/\/www\.calm\.com\/mobile\/manage-subscription\?token=* - reject-img
 
 
 [MITM]
-hostname = pan.baidu.com, api.picsart.c*, api.meiease.c*, api.calm.com, www.calm.com, photos.adobe.io, lcs-mobile-cops.adobe.io, api.textnow.me
+hostname = pan.baidu.com, api.picsart.c*, api.meiease.c*, api.calm.com, www.calm.com, photos.adobe.io, lcs-mobile-cops.adobe.io, api.textnow.me, account.wps.*, mb3admin.com
